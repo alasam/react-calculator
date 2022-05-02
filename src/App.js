@@ -10,7 +10,7 @@ const App = () => {
       <Screen value="0" />
       <ButtonBox>
         {/* When Button clicked, console log test prints */}
-        <Button className="" value="0" conClick={() => {console.log("test")}} />
+        <Button className="" value="0" onClick={() => {console.log("test")}} />
       </ButtonBox>
     </Wrapper>
   );
