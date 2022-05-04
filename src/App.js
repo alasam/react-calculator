@@ -17,29 +17,93 @@ const App = () => {
     }
   );
 
-    // Function for clicking clear button
-    const clearClickHandler = () => {
-      setCalc(
-        {
-         ...calc,
-         sign: "",
-         num: 0,
-         answer: 0, 
-        }
-      )
-    }
+  // Function for clicking clear button
+  const clearClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "",
+        num: 0,
+        answer: 0,
+      }
+    )
+  }
 
-    // Function for clicking plus/minus button
-    const plusMinusClickHandler = () => {
-      setCalc(
-        {
-         ...calc,
-         sign: "",
-         num: calc.num ? calc.num * -1 : 0,
-         answer: calc.answer ? calc.answer * -1 : 0,
-        }
-      )
-    }
+  // Function for clicking plus/minus button
+  const plusMinusClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "",
+        num: calc.num ? calc.num * -1 : 0,
+        answer: calc.answer ? calc.answer * -1 : 0,
+      }
+    )
+  }
+
+  // Function for clicking percent button (not funcional at the moment)
+  const percentClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "",
+        num: calc.num ? calc.num * -1 : 0,
+        answer: calc.answer ? calc.answer * -1 : 0,
+      }
+    )
+  }
+
+  // Function for clicking divide button
+  const divideClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "/",
+        num: 0,
+        answer: !calc.answer && calc.num ? calc.num : calc.answer,
+      }
+    )
+    console.log(calc.sign);
+  }
+
+  // Function for clicking multiply button
+  const multiplyClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "*",
+        num: 0,
+        answer: !calc.answer && calc.num ? calc.num : calc.answer,
+      }
+    )
+    console.log(calc.sign);
+  }
+
+  // Function for clicking add button
+  const addClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "+",
+        num: 0,
+        answer: !calc.answer && calc.num ? calc.num : calc.answer,
+      }
+    )
+    console.log(calc.sign);
+  }
+
+  // Function for clicking subtract button
+  const subtractClickHandler = () => {
+    setCalc(
+      {
+        ...calc,
+        sign: "-",
+        num: 0,
+        answer: !calc.answer && calc.num ? calc.num : calc.answer,
+      }
+    )
+    console.log(calc.sign);
+  }
 
   return (
     <Wrapper>
@@ -50,25 +114,25 @@ const App = () => {
         <Button className="" value="C" onClick={clearClickHandler} />
         <Button className="" value="+-" onClick={plusMinusClickHandler} />
         <Button className="" value="%" onClick={() => { console.log("%") }} />
-        <Button className="" value="/" onClick={() => { console.log("Divide") }} />
+        <Button className="" value="/" onClick={divideClickHandler} />
 
         {/* second row of buttons */}
         <Button className="" value="7" onClick={() => { console.log("7") }} />
         <Button className="" value="8" onClick={() => { console.log("8") }} />
         <Button className="" value="9" onClick={() => { console.log("9") }} />
-        <Button className="" value="X" onClick={() => { console.log("X") }} />
+        <Button className="" value="X" onClick={multiplyClickHandler} />
 
         {/* third row of buttons */}
         <Button className="" value="4" onClick={() => { console.log("4") }} />
         <Button className="" value="5" onClick={() => { console.log("5") }} />
         <Button className="" value="6" onClick={() => { console.log("6") }} />
-        <Button className="" value="-" onClick={() => { console.log("-") }} />
+        <Button className="" value="-" onClick={subtractClickHandler} />
 
         {/* forth row of buttons */}
         <Button className="" value="1" onClick={() => { console.log("1") }} />
         <Button className="" value="2" onClick={() => { console.log("2") }} />
         <Button className="" value="3" onClick={() => { console.log("3") }} />
-        <Button className="" value="+" onClick={() => { console.log("+") }} />
+        <Button className="" value="+" onClick={addClickHandler} />
 
         {/* fifth row of buttons */}
         <Button className="" value="0" onClick={() => { console.log("0") }} />
