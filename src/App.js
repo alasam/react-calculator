@@ -12,10 +12,34 @@ const App = () => {
       sign: "",
       // value entered
       num: 0,
-      // value calculated
-      answer: 0,
+      // value calculated, set to 1 for testing
+      answer: 1,
     }
   );
+
+    // Function for clicking clear button
+    const clearClickHandler = () => {
+      setCalc(
+        {
+         ...calc,
+         sign: "",
+         num: 0,
+         answer: 0, 
+        }
+      )
+    }
+
+    // Function for clicking plus/minus button
+    const plusMinusClickHandler = () => {
+      setCalc(
+        {
+         ...calc,
+         sign: "",
+         num: calc.num ? calc.num * -1 : 0,
+         answer: calc.answer ? calc.answer * -1 : 0,
+        }
+      )
+    }
 
   return (
     <Wrapper>
@@ -23,8 +47,8 @@ const App = () => {
       <Screen value={calc.num ? calc.num : calc.answer} />
       <ButtonBox>
         {/* first row of buttons */}
-        <Button className="" value="C" onClick={() => { console.log("CLEAR") }} />
-        <Button className="" value="+-" onClick={() => { console.log("+-") }} />
+        <Button className="" value="C" onClick={clearClickHandler} />
+        <Button className="" value="+-" onClick={plusMinusClickHandler} />
         <Button className="" value="%" onClick={() => { console.log("%") }} />
         <Button className="" value="/" onClick={() => { console.log("Divide") }} />
 
