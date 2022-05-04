@@ -53,56 +53,17 @@ const App = () => {
     )
   }
 
-  // Function for clicking divide button
-  const divideClickHandler = () => {
+  // Function for clicking operations button
+  const operationClickHandler = (value) => {
     setCalc(
       {
         ...calc,
-        sign: "/",
+        sign: value.target.innerHTML,
         num: 0,
         answer: !calc.answer && calc.num ? calc.num : calc.answer,
       }
     )
-    console.log(calc.sign);
-  }
-
-  // Function for clicking multiply button
-  const multiplyClickHandler = () => {
-    setCalc(
-      {
-        ...calc,
-        sign: "*",
-        num: 0,
-        answer: !calc.answer && calc.num ? calc.num : calc.answer,
-      }
-    )
-    console.log(calc.sign);
-  }
-
-  // Function for clicking add button
-  const addClickHandler = () => {
-    setCalc(
-      {
-        ...calc,
-        sign: "+",
-        num: 0,
-        answer: !calc.answer && calc.num ? calc.num : calc.answer,
-      }
-    )
-    console.log(calc.sign);
-  }
-
-  // Function for clicking subtract button
-  const subtractClickHandler = () => {
-    setCalc(
-      {
-        ...calc,
-        sign: "-",
-        num: 0,
-        answer: !calc.answer && calc.num ? calc.num : calc.answer,
-      }
-    )
-    console.log(calc.sign);
+    console.log(value.target.innerHTML);
   }
 
   return (
@@ -114,25 +75,25 @@ const App = () => {
         <Button className="" value="C" onClick={clearClickHandler} />
         <Button className="" value="+-" onClick={plusMinusClickHandler} />
         <Button className="" value="%" onClick={() => { console.log("%") }} />
-        <Button className="" value="/" onClick={divideClickHandler} />
+        <Button className="" value="/" onClick={operationClickHandler} />
 
         {/* second row of buttons */}
         <Button className="" value="7" onClick={() => { console.log("7") }} />
         <Button className="" value="8" onClick={() => { console.log("8") }} />
         <Button className="" value="9" onClick={() => { console.log("9") }} />
-        <Button className="" value="X" onClick={multiplyClickHandler} />
+        <Button className="" value="X" onClick={operationClickHandler} />
 
         {/* third row of buttons */}
         <Button className="" value="4" onClick={() => { console.log("4") }} />
         <Button className="" value="5" onClick={() => { console.log("5") }} />
         <Button className="" value="6" onClick={() => { console.log("6") }} />
-        <Button className="" value="-" onClick={subtractClickHandler} />
+        <Button className="" value="-" onClick={operationClickHandler} />
 
         {/* forth row of buttons */}
         <Button className="" value="1" onClick={() => { console.log("1") }} />
         <Button className="" value="2" onClick={() => { console.log("2") }} />
         <Button className="" value="3" onClick={() => { console.log("3") }} />
-        <Button className="" value="+" onClick={addClickHandler} />
+        <Button className="" value="+" onClick={operationClickHandler} />
 
         {/* fifth row of buttons */}
         <Button className="" value="0" onClick={() => { console.log("0") }} />
