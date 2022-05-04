@@ -19,7 +19,8 @@ const App = () => {
 
   return (
     <Wrapper>
-      <Screen value="0" />
+      {/* Screen shows either value entered or calculated answer */}
+      <Screen value={calc.num ? calc.num : calc.answer} />
       <ButtonBox>
         {/* first row of buttons */}
         <Button className="" value="C" onClick={() => { console.log("CLEAR") }} />
