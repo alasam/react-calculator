@@ -41,14 +41,17 @@ const App = () => {
     )
   }
 
-  // Function for clicking percent button (not funcional at the moment)
+  // Function for clicking percent button
   const percentClickHandler = () => {
+    let numCheck = calc.num ? parseFloat(calc.num) : 0;
+    let answerCheck = calc.answer ? parseFloat(calc.answer) : 0;
+
     setCalc(
       {
         ...calc,
         sign: "",
-        num: calc.num ? calc.num * -1 : 0,
-        answer: calc.answer ? calc.answer * -1 : 0,
+        num: numCheck / Math.pow(100, 1),
+        answer: answerCheck / Math.pow(100, 1),
       }
     )
   }
@@ -74,7 +77,7 @@ const App = () => {
         {/* first row of buttons */}
         <Button className="" value="C" onClick={clearClickHandler} />
         <Button className="" value="+-" onClick={plusMinusClickHandler} />
-        <Button className="" value="%" onClick={() => { console.log("%") }} />
+        <Button className="" value="%" onClick={percentClickHandler} />
         <Button className="" value="/" onClick={operationClickHandler} />
 
         {/* second row of buttons */}
